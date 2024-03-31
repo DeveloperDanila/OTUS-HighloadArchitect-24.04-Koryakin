@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: social-network
+  datasource:
+    username: postgres
+    password: password
+    url: jdbc:postgresql://localhost:5432/social_network
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: liquibase/master.xml

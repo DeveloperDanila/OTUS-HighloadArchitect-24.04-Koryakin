@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+                   logicalFilePath="liquibase/changelog/initial_schema.xml">
+    <changeSet id="1" author="d.koryakin">
+        <comment>Create table users</comment>
+        <sql splitStatements="false">
+            CREATE TYPE gender_type AS ENUM ('male', 'female', 'unknown');
+            CREATE TABLE users (
+                id          SERIAL NOT NULL,
+                first_name  varchar(255) NOT NULL,
+                last_name   varchar(255) NOT NULL,
+                birthday    date NOT NULL,
+                gender      gender_type NOT NULL,
+                interests   TEXT,
+                city        varchar(255)
+            );
+        </sql>
+    </changeSet>
+</databaseChangeLog>
